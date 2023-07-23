@@ -102,12 +102,12 @@ body {
 
 .text-area {
     position: relative;
-    width: 45vw;
+    width: 55vw;
     height: 100vh;
-    top: 280px;
-    left: 200px;
+    top: 43vh;
+    left: 14vw;
     color: white;
-    font-size: 24px;
+    font-size: 22px;
     opacity: 0;
     /* Initially hide the text-area */
     transform: translateY(50px);
@@ -132,7 +132,8 @@ body {
     animation: animate__bounceIn 1s;
 }
 
-.My-Status span{
+.My-Status span {
+    font-size: 24px;
     opacity: 0;
     transform: translateX(100%);
     transition: opacity 1s, transform 1s;
@@ -204,4 +205,10 @@ body {
 .Content.animate__show {
     opacity: 1;
     transform: translateY(0);
+}
+
+.vertical-line {
+    border-left: 6px solid #ff5733;
+    height: 56vh;
+    position: absolute;
 }

@@ -7,7 +7,7 @@ function animateOnScroll() {
     if (textAreaPosition < screenPosition) {
         textArea.classList.add('animate__show');
     }
-    
+
     const myStatusSpans = document.querySelectorAll('.My-Status span');
     const screenPosition3 = window.innerHeight / 1.5; // Adjust the value as needed to control when the animation triggers
 
@@ -23,10 +23,14 @@ function animateOnScroll() {
     const cvContainer = document.querySelector('.cv-container');
     const cvContainerPosition = cvContainer.getBoundingClientRect().top;
     const screenPosition2 = window.innerHeight / 1.6; // Adjust the value as needed to control when the animation triggers
+    var delayInMilliseconds = 2000; //2 second
 
-    if (cvContainerPosition < screenPosition2) {
-        cvContainer.classList.add('animate__show');
-    }
+    setTimeout(function () {
+        //your code to be executed after 2 second
+        if (cvContainerPosition < screenPosition2) {
+            cvContainer.classList.add('animate__show');
+        }
+    }, delayInMilliseconds);
 
     const ContentArea = document.querySelector('.Content');
     const ContentAreaPosition = ContentArea.getBoundingClientRect().top;
