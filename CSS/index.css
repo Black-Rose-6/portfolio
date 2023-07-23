@@ -1,0 +1,207 @@
+/* The sidebar menu */
+.sidebar {
+    display: grid;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    justify-items: center;
+    grid-template-rows: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 1fr;
+}
+
+/* The sidebar links */
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    transition: 0.5s;
+}
+
+.openbtn:hover {
+    background-color: #2c2929;
+}
+
+/* Style page content */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+    background-color: #181818;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    width: 100vw;
+    height: 59vh;
+}
+
+/* On smaller screens */
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+/* coppied */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ff5733;
+    border-radius: 10px;
+}
+
+
+body {
+    scroll-behavior: smooth;
+    background-color: #181818;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden !important;
+}
+
+.text-area {
+    position: relative;
+    width: 45vw;
+    height: 100vh;
+    top: 280px;
+    left: 200px;
+    color: white;
+    font-size: 24px;
+    opacity: 0;
+    /* Initially hide the text-area */
+    transform: translateY(50px);
+    /* Move it down to create a slide-in effect */
+    transition: opacity 1s, transform 1s;
+}
+
+.text-area.animate__show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.text-area span {
+    color: #ff5733;
+}
+
+.text-area p {
+    font-size: 20px;
+}
+
+.text-area.animate__bounceIn {
+    animation: animate__bounceIn 1s;
+}
+
+.My-Status span{
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 1s, transform 1s;
+}
+
+.My-Status span.animate__show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes animate__bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.cv-container {
+    /* position: relative;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%); */
+    opacity: 0;
+    /* Initially hide the container */
+    transition: opacity 1s, transform 1s;
+    text-align: end;
+}
+
+.cv-btn {
+    background-color: #191919;
+    width: 13vw;
+    height: 8vh;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+
+}
+
+.cv-btn:hover {
+    background-color: #e44f25;
+}
+
+.cv-btn:active {
+    background-color: #e44f25;
+    box-shadow: 0 5px #FE6E4F;
+    transform: translateY(4px);
+}
+
+.cv-container.animate__show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.Content {
+    opacity: 0;
+    /* Initially hide the text-area */
+    transform: translateY(50px);
+    /* Move it down to create a slide-in effect */
+    transition: opacity 1s, transform 1s;
+}
+
+.Content.animate__show {
+    opacity: 1;
+    transform: translateY(0);
+}
