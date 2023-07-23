@@ -209,6 +209,14 @@ body {
 
 .vertical-line {
     border-left: 6px solid #ff5733;
-    height: 56vh;
+    height: 57vh;
     position: absolute;
+}
+
+.Personal-detail{
+    padding-left: 1vw;
+}
+
+.Personal-detail-subsection-1{
+    padding-left: 1vw;
 }
