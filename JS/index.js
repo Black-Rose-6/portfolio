@@ -8,22 +8,6 @@ function animateOnScroll() {
         textArea.classList.add('animate__show');
     }
     
-    const cvContainer = document.querySelector('.cv-container');
-    const cvContainerPosition = cvContainer.getBoundingClientRect().top;
-    const screenPosition2 = window.innerHeight / 2; // Adjust the value as needed to control when the animation triggers
-
-    if (cvContainerPosition < screenPosition2) {
-        cvContainer.classList.add('animate__show');
-    }
-
-    const ContentArea = document.querySelector('.Content');
-    const ContentAreaPosition = ContentArea.getBoundingClientRect().top;
-    const screenPosition1 = window.innerHeight / 2.3; // Adjust the value as needed to control when the animation triggers
-
-    if (ContentAreaPosition < screenPosition1) {
-        ContentArea.classList.add('animate__show');
-    }
-
     const myStatusSpans = document.querySelectorAll('.My-Status span');
     const screenPosition3 = window.innerHeight / 1.5; // Adjust the value as needed to control when the animation triggers
 
@@ -35,6 +19,23 @@ function animateOnScroll() {
             span.classList.add('animate__show');
         }
     });
+
+    const cvContainer = document.querySelector('.cv-container');
+    const cvContainerPosition = cvContainer.getBoundingClientRect().top;
+    const screenPosition2 = window.innerHeight / 1.6; // Adjust the value as needed to control when the animation triggers
+
+    if (cvContainerPosition < screenPosition2) {
+        cvContainer.classList.add('animate__show');
+    }
+
+    const ContentArea = document.querySelector('.Content');
+    const ContentAreaPosition = ContentArea.getBoundingClientRect().top;
+    const screenPosition1 = window.innerHeight / 2.2; // Adjust the value as needed to control when the animation triggers
+
+    if (ContentAreaPosition < screenPosition1) {
+        ContentArea.classList.add('animate__show');
+    }
+
 }
 
 // Listen for the scroll event and trigger the animation
