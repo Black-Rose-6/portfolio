@@ -8,11 +8,12 @@
     top: 0;
     left: 0;
     background-color: #111;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     padding-top: 60px;
     transition: 0.5s;
-    justify-items: center;
+    justify-items: start;
     grid-template-rows: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 1fr;
+    overflow-y : auto;
 }
 
 /* The sidebar links */
@@ -176,7 +177,7 @@ body {
     border-radius: 5px;
     color: white;
     font-size: 20px;
-
+    transition: 0.5s;
 }
 
 .cv-btn:hover {
@@ -209,14 +210,35 @@ body {
 
 .vertical-line {
     border-left: 6px solid #ff5733;
-    height: 57vh;
+    height: 60vh;
     position: absolute;
 }
 
 .Personal-detail{
     padding-left: 1vw;
+    height: 61vh;
+    overflow-y: auto;
 }
 
 .Personal-detail-subsection-1{
-    padding-left: 1vw;
+    padding-left: 2vw;
+
+}
+
+.Content-skills {
+    opacity: 0;
+    /* Initially hide the text-area */
+    transform: translateY(50px);
+    /* Move it down to create a slide-in effect */
+    transition: opacity 1s, transform 1s;
+}
+
+.Content-skills.animate__show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.Content p{
+    margin-top: 1vh;
+    margin-bottom: 0;
 }

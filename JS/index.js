@@ -1,5 +1,6 @@
 // Function to add the animate__show class when the element comes into view
 function animateOnScroll() {
+    // starting Name and heading of the document
     const textArea = document.querySelector('.text-area');
     const textAreaPosition = textArea.getBoundingClientRect().top;
     const screenPosition = window.innerHeight / 1.3; // Adjust the value as needed to control when the animation triggers
@@ -8,6 +9,7 @@ function animateOnScroll() {
         textArea.classList.add('animate__show');
     }
 
+    // Skills section one by one
     const myStatusSpans = document.querySelectorAll('.My-Status span');
     const screenPosition3 = window.innerHeight / 1.5; // Adjust the value as needed to control when the animation triggers
 
@@ -20,6 +22,7 @@ function animateOnScroll() {
         }
     });
 
+    // CV button
     const cvContainer = document.querySelector('.cv-container');
     const cvContainerPosition = cvContainer.getBoundingClientRect().top;
     const screenPosition2 = window.innerHeight / 1.6; // Adjust the value as needed to control when the animation triggers
@@ -32,12 +35,22 @@ function animateOnScroll() {
         }
     }, delayInMilliseconds);
 
+    // Personal Detail
     const ContentArea = document.querySelector('.Content');
     const ContentAreaPosition = ContentArea.getBoundingClientRect().top;
     const screenPosition1 = window.innerHeight / 2.2; // Adjust the value as needed to control when the animation triggers
 
     if (ContentAreaPosition < screenPosition1) {
         ContentArea.classList.add('animate__show');
+    }
+    
+    // Skills
+    const ContentskillsArea = document.querySelector('.Content-skills');
+    const ContentskillsAreaPosition = ContentskillsArea.getBoundingClientRect().top;
+    const screenPosition4 = window.innerHeight / 2.4; // Adjust the value as needed to control when the animation triggers
+
+    if (ContentskillsAreaPosition < screenPosition4) {
+        ContentskillsArea.classList.add('animate__show');
     }
 
 }
