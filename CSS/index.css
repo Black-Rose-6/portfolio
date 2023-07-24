@@ -13,7 +13,7 @@
     transition: 0.5s;
     justify-items: start;
     grid-template-rows: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 1fr;
-    overflow-y : auto;
+    overflow-y: auto;
 }
 
 /* The sidebar links */
@@ -49,6 +49,7 @@
     padding: 10px 15px;
     border: none;
     transition: 0.5s;
+    position: fixed;
 }
 
 .openbtn:hover {
@@ -167,6 +168,9 @@ body {
     /* Initially hide the container */
     transition: opacity 1s, transform 1s;
     text-align: end;
+    position: relative;
+    right: -25vw;
+    top: 12vh;
 }
 
 .cv-btn {
@@ -214,13 +218,13 @@ body {
     position: absolute;
 }
 
-.Personal-detail{
+.Personal-detail {
     padding-left: 1vw;
     height: 61vh;
     overflow-y: auto;
 }
 
-.Personal-detail-subsection-1{
+.Personal-detail-subsection-1 {
     padding-left: 2vw;
 
 }
@@ -238,7 +242,73 @@ body {
     transform: translateY(0);
 }
 
-.Content p{
+.Content p {
     margin-top: 1vh;
     margin-bottom: 0;
+}
+
+.code-box {
+    position: absolute;
+    top: -26vh;
+    left: 52vw;
+    transform: translateX(100%);
+    opacity: 0;
+    /* Initially hide the container */
+    transition: opacity 1s, transform 1s;
+    width: 31vw;
+    height: 62vh;
+    overflow-y: hidden;
+}
+
+#codebox {
+    font-size: 0.75em;
+    padding-left: 3vw;
+    padding-top: 2vh;
+    /* padding: 15px;
+    font-family: Courier, sans-serif;
+    font-size: 1em;
+    line-height: 1.3;
+    color: #fff;
+    -webkit-border-radius: 0px 0px 6px 6px;
+    -moz-border-radius: 0px 0px 6px 6px;
+    border-radius: 0px 0px 6px 6px;
+    width: 31vw; */
+}
+
+.code-box pre{
+    overflow: hidden;
+    font-size: 0.75em;
+}
+
+code {
+    font-family: Courier, sans-serif;
+    font-size: 1em;
+    line-height: 1.3;
+}
+
+
+.codeheader {
+    border-radius: 6px 6px 0 0;
+    padding: 5px 15px 5px 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    color: #fff;
+}
+
+.codebox-css {
+    position: relative;
+    left: 150;
+}
+
+.html {
+    color: #e44f25;
+}
+
+.css {
+    color: #1572b7;
+}
+
+.code-box.animate__show {
+    opacity: 1;
+    transform: translateY(0);
 }

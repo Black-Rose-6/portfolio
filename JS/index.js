@@ -21,19 +21,30 @@ function animateOnScroll() {
             span.classList.add('animate__show');
         }
     });
+    
+    // Python Code box
+    const codeBox = document.querySelector('.code-box');
+    const codeBoxPosition = codeBox.getBoundingClientRect().top;
+    const screenPosition5 = window.innerHeight / 6; // Adjust the value as needed to control when the animation triggers
 
-    // CV button
-    const cvContainer = document.querySelector('.cv-container');
-    const cvContainerPosition = cvContainer.getBoundingClientRect().top;
-    const screenPosition2 = window.innerHeight / 1.6; // Adjust the value as needed to control when the animation triggers
-    var delayInMilliseconds = 2000; //2 second
-
-    setTimeout(function () {
+    if (codeBoxPosition < screenPosition5) {
+        codeBox.classList.add('animate__show');
+        
+        // CV button
+        const cvContainer = document.querySelector('.cv-container');
+        const cvContainerPosition = cvContainer.getBoundingClientRect().top;
+        const screenPosition2 = window.innerHeight / 1.6; // Adjust the value as needed to control when the animation triggers
+        var delayInMilliseconds = 1000; //1 second
+        
+        setTimeout(function() {
+            //your code to be executed after 1 second
+            if (cvContainerPosition < screenPosition2) {
+                cvContainer.classList.add('animate__show');
+            }
+          }, delayInMilliseconds);
         //your code to be executed after 2 second
-        if (cvContainerPosition < screenPosition2) {
-            cvContainer.classList.add('animate__show');
-        }
-    }, delayInMilliseconds);
+    }
+    
 
     // Personal Detail
     const ContentArea = document.querySelector('.Content');
@@ -43,11 +54,11 @@ function animateOnScroll() {
     if (ContentAreaPosition < screenPosition1) {
         ContentArea.classList.add('animate__show');
     }
-    
+
     // Skills
     const ContentskillsArea = document.querySelector('.Content-skills');
     const ContentskillsAreaPosition = ContentskillsArea.getBoundingClientRect().top;
-    const screenPosition4 = window.innerHeight / 2.4; // Adjust the value as needed to control when the animation triggers
+    const screenPosition4 = window.innerHeight / 1.4; // Adjust the value as needed to control when the animation triggers
 
     if (ContentskillsAreaPosition < screenPosition4) {
         ContentskillsArea.classList.add('animate__show');
