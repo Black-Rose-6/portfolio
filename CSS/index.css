@@ -170,7 +170,9 @@ body {
     text-align: end;
     position: relative;
     right: -25vw;
-    top: 27vh;
+    top: 31vh;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .cv-btn {
@@ -341,8 +343,8 @@ code {
 }
 
 .loading-bar-container {
-    width: 300px;
-    height: 20px;
+    width: 13vw;
+    height: 2vh;
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
@@ -354,7 +356,7 @@ code {
     height: 100%;
     background-color: #e44f25;
     border-radius: 10px;
-    transition: width 1s ease-in-out;
+    transition: width 1.5s ease-in-out;
     position: absolute;
     top: 0;
     left: 0;
@@ -395,6 +397,8 @@ code {
     transition: 0.5s;
     outline: 2px solid #f05959; 
     outline-offset: -2px; 
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .cv-btn-1:hover {

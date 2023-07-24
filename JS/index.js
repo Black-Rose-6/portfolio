@@ -1,3 +1,18 @@
+// Helper function to check scroll direction
+function getScrollDirection() {
+    let scrollDirection;
+    if (window.scrollY > this.scrollY) {
+        scrollDirection = "down";
+    } else if (window.scrollY < this.scrollY) {
+        scrollDirection = "up";
+    }
+    this.scrollY = window.scrollY;
+    return scrollDirection;
+}
+
+let scrollY = window.scrollY;
+
+
 // Function to add the animate__show class when the element comes into view
 function animateOnScroll() {
     // starting Name and heading of the document
@@ -22,25 +37,6 @@ function animateOnScroll() {
         }
     });
 
-    // Python Code box
-    const codeBox = document.querySelector('.code-box');
-    const codeBoxPosition = codeBox.getBoundingClientRect().top;
-    const screenPosition5 = window.innerHeight / 6; // Adjust the value as needed to control when the animation triggers
-
-    if (codeBoxPosition < screenPosition5) {
-        codeBox.classList.add('animate__show');
-
-        // CV button
-        const cvContainer = document.querySelector('.cv-container');
-        const cvContainerPosition = cvContainer.getBoundingClientRect().top;
-        const screenPosition2 = window.innerHeight / 1.6; // Adjust the value as needed to control when the animation triggers
-        //your code to be executed after 1 second
-        if (cvContainerPosition < screenPosition2) {
-            cvContainer.classList.add('animate__show');
-        }
-    }
-
-
     // Personal Detail
     const ContentArea = document.querySelector('.Content');
     const ContentAreaPosition = ContentArea.getBoundingClientRect().top;
@@ -60,6 +56,23 @@ function animateOnScroll() {
     }
 
     // Python Code box
+    const codeBox = document.querySelector('.code-box');
+    const codeBoxPosition = codeBox.getBoundingClientRect().top;
+    const screenPosition5 = window.innerHeight / 6; // Adjust the value as needed to control when the animation triggers
+
+    if (codeBoxPosition < screenPosition5) {
+        codeBox.classList.add('animate__show');
+        // CV button
+        const cvContainer = document.querySelector('.cv-container');
+        const cvContainerPosition = cvContainer.getBoundingClientRect().top;
+        const screenPosition2 = window.innerHeight / 1.6; // Adjust the value as needed to control when the animation triggers
+        //your code to be executed after 1 second
+        if (cvContainerPosition < screenPosition2) {
+            cvContainer.classList.add('animate__show');
+        }
+    }
+
+    // Python Code box-1
     const codeBox1 = document.querySelector('.code-box-1');
     const codeBox1Position = codeBox1.getBoundingClientRect().top;
     const screenPosition6 = window.innerHeight / 4; // Adjust the value as needed to control when the animation triggers
@@ -79,7 +92,7 @@ function animateOnScroll() {
                     loadingBar.style.width = `${progress}%`;
                     progressText.textContent = `${progress}%`;
                 }
-            }, 20); // Adjust the interval to control the loading speed
+            }, 5); // Adjust the interval to control the loading speed
         }, delayInMilliseconds);
 
         // Resume / Contact button
@@ -90,6 +103,14 @@ function animateOnScroll() {
         if (cvContainer1Position < screenPosition8) {
             cvContainer1.classList.add('animate__show');
         }
+    }
+
+    // Handle hiding of code-box and code-box-1 when scrolling up
+    if (codeBoxPosition > screenPosition5) {
+        codeBox.classList.remove('animate__show');
+    }
+    if(codeBox1Position > screenPosition6){
+        codeBox1.classList.remove('animate__show');
     }
 }
 
