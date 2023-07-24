@@ -21,7 +21,7 @@ function animateOnScroll() {
             span.classList.add('animate__show');
         }
     });
-    
+
     // Python Code box
     const codeBox = document.querySelector('.code-box');
     const codeBoxPosition = codeBox.getBoundingClientRect().top;
@@ -29,22 +29,17 @@ function animateOnScroll() {
 
     if (codeBoxPosition < screenPosition5) {
         codeBox.classList.add('animate__show');
-        
+
         // CV button
         const cvContainer = document.querySelector('.cv-container');
         const cvContainerPosition = cvContainer.getBoundingClientRect().top;
         const screenPosition2 = window.innerHeight / 1.6; // Adjust the value as needed to control when the animation triggers
-        var delayInMilliseconds = 1000; //1 second
-        
-        setTimeout(function() {
-            //your code to be executed after 1 second
-            if (cvContainerPosition < screenPosition2) {
-                cvContainer.classList.add('animate__show');
-            }
-          }, delayInMilliseconds);
-        //your code to be executed after 2 second
+        //your code to be executed after 1 second
+        if (cvContainerPosition < screenPosition2) {
+            cvContainer.classList.add('animate__show');
+        }
     }
-    
+
 
     // Personal Detail
     const ContentArea = document.querySelector('.Content');
@@ -64,6 +59,38 @@ function animateOnScroll() {
         ContentskillsArea.classList.add('animate__show');
     }
 
+    // Python Code box
+    const codeBox1 = document.querySelector('.code-box-1');
+    const codeBox1Position = codeBox1.getBoundingClientRect().top;
+    const screenPosition6 = window.innerHeight / 4; // Adjust the value as needed to control when the animation triggers
+    // loading bar
+    const loadingBar = document.querySelector('.loading-bar');
+    const progressText = document.querySelector('.progress-text');
+    let progress = 0;
+
+    if (codeBox1Position < screenPosition6) {
+        codeBox1.classList.add('animate__show');
+
+        var delayInMilliseconds = 500; //0.5 second
+        setTimeout(function () {
+            const intervalId = setInterval(() => {
+                if (progress < 100) {
+                    progress++;
+                    loadingBar.style.width = `${progress}%`;
+                    progressText.textContent = `${progress}%`;
+                }
+            }, 20); // Adjust the interval to control the loading speed
+        }, delayInMilliseconds);
+
+        // Resume / Contact button
+        const cvContainer1 = document.querySelector('.cv-container-1');
+        const cvContainer1Position = cvContainer1.getBoundingClientRect().top;
+        const screenPosition8 = window.innerHeight / 1.0; // Adjust the value as needed to control when the animation triggers
+        //your code to be executed after 1 second
+        if (cvContainer1Position < screenPosition8) {
+            cvContainer1.classList.add('animate__show');
+        }
+    }
 }
 
 // Listen for the scroll event and trigger the animation

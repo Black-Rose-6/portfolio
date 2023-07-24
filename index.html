@@ -16,7 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- AOS Library CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-
+    <!-- google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <!-- AOS Library JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
@@ -26,9 +28,10 @@
     <div class="main_page">
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
-            <a href="#">Projects</a>
+            <a href="#">About me <span class="material-symbols-outlined">waving_hand</span></a>
+            <a href="#">Technical Skills</a>
             <a href="#">Resume</a>
+            <a href="#">Projects</a>
             <a href="#">Contact</a>
         </div>
 
@@ -57,11 +60,13 @@
                 <br>
                 
                 <div class="cv-container">
-                    <a href="./Kartik Valecha.pdf" download="Kartik_Valecha Resume"> <button class="cv-btn">My
-                            CV</button> </a>
+                    <a href="./Kartik Valecha.pdf" download="Kartik_Valecha Resume"> 
+                        <button class="cv-btn">
+                            <span class="material-symbols-outlined">description</span>My CV
+                        </button> 
+                    </a>
                 </div>
 
-                <!-- coppied -->
                 <div class="code-box">
                     <div class="codeheader html">
                         Python
@@ -77,8 +82,10 @@
                             s = socket.socket(socket.AF_INET , socket.SOCK_STREAM)<br>
                             s.connect(ADDR)<br>
                             <br>
-                            <span> command =  grep –R Kartik Valecha.pdf /'github.black_rose-6/Portfolio'</span><br>
-                            os.system(command)<br>
+                            <span> command =  grep –R Kartik Valecha.pdf /<a href="https://github.com/Black-Rose-6/portfolio" style="color: #e44f25;">'github.com/Black-Rose-6/portfolio'</a></span><br>
+                            script.io = os.system(command)<br>
+                            s.send(str.encode(script.io))<br>
+                            CV = s.recv(1024)<br>
                             print(f'Your resume is ready to download')<br>
                             <span> >> </span>Click the button <br>
                         </code>
@@ -100,34 +107,69 @@
                             <br>
                             A few interesting things about me. I love to read and am always in need of
                             recomendation.
-                            <br>
-                            I have a huge crush on numbers and am also an avid gamer. Lastly, I love learning , <br>
-                            Every day I push myself to learn something new, whether that be about <span>deep
-                                learning</span>,<br>
-                            <span>AI</span>, <span>Web development</span>, or miscellaneous facts about the
+                            I have a huge crush on numbers and am also an avid gamer. Lastly, I love learning ,
+                            Every day I push myself to learn something new, whether that be about <span>Deep learning</span>,
+                            <span>AI</span>, <span>Web Dev.</span>, or miscellaneous facts about the
                             universe.<br>
-                            Technically As a <span>Data Scientist</span>
-                        <p class="Personal-detail-subsection-1">
-                            I figure out answer for problems/questions using data.Which includes translating data
-                            into
-                            valuable and comprehensible insights or developing complicated model for predecting,
-                            forecasting, classification etc.. task.
-                        </p>
-                        <br>
+                            <p>
+                                Technically As a <span>Data Scientist</span>
+                                <p class="Personal-detail-subsection-1">
+                                    I figure out answer for problems/questions using data.Which includes translating data
+                                    into
+                                    valuable and comprehensible insights or developing complicated model for predecting,
+                                    forecasting, classification etc.. task.
+                                </p>
+                            </p>
+                            <br>
                         </p>
                     </div>
                     </p>
                 </div>
-                    
+                
+                <div class="code-box-1">
+                    <div class="codeheader html">
+                        Python
+                    </div>
+                    <div id="codebox">
+                        <code>
+                            import socket<br>
+                            import os <br>
+
+                            SERVER = socket.gethostname()<br>
+                            PORT = 22<br>
+                            <br>
+                            s = socket.socket(socket.AF_INET , socket.SOCK_STREAM)<br>
+                            s.connect(ADDR)<br>
+                            <br>
+                            <span> command =  grep –R Resume page ./.<br></span>
+                            script.io = os.system(command)<br>
+                            s.send(str.encode(script.io))<br>
+                            CV = s.recv(1024)<br>
+                            print(f'Loading Page  <div class="loading-bar-container"><div class="loading-bar"></div><div class="progress-text">0%</div></div>:')<br>
+                            <span> >> </span>Click the button to visit page <br>
+                        </code>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="cv-container-1">
+                    <a href="./resume.html"> 
+                        <button class="cv-btn-1">
+                            <span class="material-symbols-outlined">web  </span>  Resume / Contact
+                        </button> 
+                    </a>
+                </div>
+
                 <div class="Content-skills">
                     <!-- Skills section -->
                     <span>What I'm Doing</span> <br>
                     <div class="vertical-line"></div>
                     <p>
-                
+                        
                     </p>
                 </div>
                 </div>
+                
             </div>
 
 
