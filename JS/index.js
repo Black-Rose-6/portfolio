@@ -40,7 +40,7 @@ function animateOnScroll() {
     // Personal Detail
     const ContentArea = document.querySelector('.Content');
     const ContentAreaPosition = ContentArea.getBoundingClientRect().top;
-    const screenPosition1 = window.innerHeight / 2.2; // Adjust the value as needed to control when the animation triggers
+    const screenPosition1 = window.innerHeight / 2.0; // Adjust the value as needed to control when the animation triggers
 
     if (ContentAreaPosition < screenPosition1) {
         ContentArea.classList.add('animate__show');
@@ -58,59 +58,32 @@ function animateOnScroll() {
     // Python Code box
     const codeBox = document.querySelector('.code-box');
     const codeBoxPosition = codeBox.getBoundingClientRect().top;
-    const screenPosition5 = window.innerHeight / 6; // Adjust the value as needed to control when the animation triggers
+    const screenPosition5 = window.innerHeight / 5; // Adjust the value as needed to control when the animation triggers
 
     if (codeBoxPosition < screenPosition5) {
         codeBox.classList.add('animate__show');
         // CV button
         const cvContainer = document.querySelector('.cv-container');
         const cvContainerPosition = cvContainer.getBoundingClientRect().top;
-        const screenPosition2 = window.innerHeight / 1.6; // Adjust the value as needed to control when the animation triggers
+        const screenPosition2 = window.innerHeight / 1.4; // Adjust the value as needed to control when the animation triggers
         //your code to be executed after 1 second
         if (cvContainerPosition < screenPosition2) {
             cvContainer.classList.add('animate__show');
         }
     }
 
-    // Python Code box-1
-    const codeBox1 = document.querySelector('.code-box-1');
-    const codeBox1Position = codeBox1.getBoundingClientRect().top;
-    const screenPosition6 = window.innerHeight / 4; // Adjust the value as needed to control when the animation triggers
-    // loading bar
-    const loadingBar = document.querySelector('.loading-bar');
-    const progressText = document.querySelector('.progress-text');
-    let progress = 0;
-
-    if (codeBox1Position < screenPosition6) {
-        codeBox1.classList.add('animate__show');
-
-        var delayInMilliseconds = 500; //0.5 second
-        setTimeout(function () {
-            const intervalId = setInterval(() => {
-                if (progress < 100) {
-                    progress++;
-                    loadingBar.style.width = `${progress}%`;
-                    progressText.textContent = `${progress}%`;
-                }
-            }, 5); // Adjust the interval to control the loading speed
-        }, delayInMilliseconds);
-
-        // Resume / Contact button
-        const cvContainer1 = document.querySelector('.cv-container-1');
-        const cvContainer1Position = cvContainer1.getBoundingClientRect().top;
-        const screenPosition8 = window.innerHeight / 1.0; // Adjust the value as needed to control when the animation triggers
-        //your code to be executed after 1 second
-        if (cvContainer1Position < screenPosition8) {
-            cvContainer1.classList.add('animate__show');
-        }
-    }
+    // // Resume / Contact button
+    // const cvContainer1 = document.querySelector('.cv-container-1');
+    // const cvContainer1Position = cvContainer1.getBoundingClientRect().top;
+    // const screenPosition8 = window.innerHeight / 1.0; // Adjust the value as needed to control when the animation triggers
+    // //your code to be executed after 1 second
+    // if (cvContainer1Position < screenPosition8) {
+    //     cvContainer1.classList.add('animate__show');
+    // }
 
     // Handle hiding of code-box and code-box-1 when scrolling up
     if (codeBoxPosition > screenPosition5) {
         codeBox.classList.remove('animate__show');
-    }
-    if(codeBox1Position > screenPosition6){
-        codeBox1.classList.remove('animate__show');
     }
 }
 
