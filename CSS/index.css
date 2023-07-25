@@ -502,6 +502,9 @@ code {
     display: grid;
     grid-template-rows: 1fr 1fr;
     gap: 20px;
+}
+
+/* .service-item {
     background: var(--border-gradient-onyx);
     padding: 5px;
     border-radius: 14px;
@@ -509,11 +512,6 @@ code {
     position: relative;
     z-index: 1;
     height: 73vh;
-    overflow-y: auto;
-    justify-items: center;
-}
-
-/* .service-item {
 } */
 
 .service-item::before {
