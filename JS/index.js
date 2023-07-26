@@ -55,17 +55,29 @@ function animateOnScroll() {
         ContentskillsArea.classList.add('animate__show');
     }
 
+    // Contact
+    const ContentContactArea = document.querySelector('.Contact');
+    const ContentcontactAreaPosition = ContentContactArea.getBoundingClientRect().top;
+    const screenPosition9 = window.innerHeight / 1.4; // Adjust the value as needed to control when the animation triggers
+
+    if (ContentcontactAreaPosition < screenPosition9) {
+        ContentContactArea.classList.add('animate__show');
+    }
+
     // Python Code box
     const codeBox = document.querySelector('.code-box');
     const codeBoxPosition = codeBox.getBoundingClientRect().top;
     const screenPosition5 = window.innerHeight / 5; // Adjust the value as needed to control when the animation triggers
-
+    // Reusme Button
+    const Resumebutton = document.querySelector('.openbtn1');
+    // CV button
+    const cvContainer = document.querySelector('.cv-container');
+    const cvContainerPosition = cvContainer.getBoundingClientRect().top;
+    const screenPosition2 = window.innerHeight / 1.4; // Adjust the value as needed to control when the animation triggers
+    
     if (codeBoxPosition < screenPosition5) {
         codeBox.classList.add('animate__show');
-        // CV button
-        const cvContainer = document.querySelector('.cv-container');
-        const cvContainerPosition = cvContainer.getBoundingClientRect().top;
-        const screenPosition2 = window.innerHeight / 1.4; // Adjust the value as needed to control when the animation triggers
+        Resumebutton.classList.add('animate__show');
         //your code to be executed after 1 second
         if (cvContainerPosition < screenPosition2) {
             cvContainer.classList.add('animate__show');
@@ -81,9 +93,16 @@ function animateOnScroll() {
     //     cvContainer1.classList.add('animate__show');
     // }
 
-    // Handle hiding of code-box and code-box-1 when scrolling up
+    // Handle hiding when scrolling up
     if (codeBoxPosition > screenPosition5) {
         codeBox.classList.remove('animate__show');
+        Resumebutton.classList.remove('animate__show');
+    }
+    if (ContentcontactAreaPosition > screenPosition9) {
+        ContentContactArea.classList.remove('animate__show');
+    }
+    if (cvContainerPosition > screenPosition2) {
+        cvContainer.classList.remove('animate__show');
     }
 }
 
@@ -95,12 +114,35 @@ animateOnScroll();
 
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
-    document.getElementById("mySidebar").style.width = "16vw";
+    document.getElementById("myMenubar").style.width = "16vw";
     document.getElementById("main").style.marginLeft = "16vw";
+    const Resumebutton = document.querySelector('.openbtn1');
+    Resumebutton.classList.add('animate__show');
 }
 
 /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("myMenubar").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
+    const Resumebutton = document.querySelector('.openbtn1');
+    Resumebutton.classList.remove('animate__show');
 }
+
+function showresume() {
+    document.getElementById("myMenubar").style.width = "16vw";
+    document.getElementById("main").style.marginLeft = "16vw";
+    const Resumebutton = document.querySelector('.openbtn1');
+    Resumebutton.classList.add('animate__show');
+}
+
+
+// sidebar variables
+const sidebar = document.querySelector("[data-sidebar]");
+const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+// sidebar toggle functionality for mobile
+sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+
+// element toggle function
+const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
