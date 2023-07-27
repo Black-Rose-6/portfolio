@@ -115,7 +115,9 @@ animateOnScroll();
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
     document.getElementById("myMenubar").style.width = "16vw";
+    document.getElementsByClassName("openbtn")[0].style.marginLeft = "16vw";
     document.getElementById("main").style.marginLeft = "16vw";
+    document.getElementById("resume-page").style.marginLeft = "16vw";
     const Resumebutton = document.querySelector('.openbtn1');
     Resumebutton.classList.add('animate__show');
 }
@@ -124,15 +126,28 @@ function openNav() {
 function closeNav() {
     document.getElementById("myMenubar").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("resume-page").style.marginLeft = "0";
+    document.getElementsByClassName("openbtn")[0].style.marginLeft = "0";
     const Resumebutton = document.querySelector('.openbtn1');
     Resumebutton.classList.remove('animate__show');
 }
 
 function showresume() {
-    document.getElementById("myMenubar").style.width = "16vw";
-    document.getElementById("main").style.marginLeft = "16vw";
     const Resumebutton = document.querySelector('.openbtn1');
     Resumebutton.classList.add('animate__show');
+    const Gobackbutton = document.querySelector('.openbtn2');
+    Gobackbutton.classList.add('animate__show');
+    document.getElementById("main").classList.add('animate__show');
+    document.getElementById("resume-page").classList.add('animate__show');
+}
+
+function goback() {
+    const Resumebutton = document.querySelector('.openbtn1');
+    Resumebutton.classList.remove('animate__show');
+    const Gobackbutton = document.querySelector('.openbtn2');
+    Gobackbutton.classList.remove('animate__show');
+    document.getElementById("main").classList.remove('animate__show');
+    document.getElementById("resume-page").classList.remove('animate__show');
 }
 
 
