@@ -112,6 +112,8 @@ window.addEventListener('scroll', animateOnScroll);
 // Initial check to see if the element is already in view
 animateOnScroll();
 
+opennavflag = false;
+
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
     document.getElementById("myMenubar").style.width = "16vw";
@@ -120,6 +122,7 @@ function openNav() {
     document.getElementById("resume-page").style.marginLeft = "16vw";
     const Resumebutton = document.querySelector('.openbtn1');
     Resumebutton.classList.add('animate__show');
+    opennavflag = true;
 }
 
 /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
@@ -130,6 +133,7 @@ function closeNav() {
     document.getElementsByClassName("openbtn")[0].style.marginLeft = "0";
     const Resumebutton = document.querySelector('.openbtn1');
     Resumebutton.classList.remove('animate__show');
+    opennavflag = true;
 }
 
 function showresume() {
@@ -139,6 +143,10 @@ function showresume() {
     Gobackbutton.classList.add('animate__show');
     document.getElementById("main").classList.add('animate__show');
     document.getElementById("resume-page").classList.add('animate__show');
+    if(opennavflag)
+    {
+        closeNav();
+    }
 }
 
 function goback() {
@@ -148,6 +156,10 @@ function goback() {
     Gobackbutton.classList.remove('animate__show');
     document.getElementById("main").classList.remove('animate__show');
     document.getElementById("resume-page").classList.remove('animate__show');
+    if(opennavflag)
+    {
+        closeNav();
+    }
 }
 
 

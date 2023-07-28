@@ -136,6 +136,7 @@
     top: -59vh;
     color: #f5cd68;
     font-size: 18px !important;
+    /* overflow-y: scroll; */
 }
 
 #resume-page.animate__show {
@@ -690,6 +691,7 @@ article.active {
     box-shadow: var(--shadow-2);
     cursor: pointer;
     z-index: 1;
+    top: 2vh;
 }
 
 .content-card::before {
@@ -874,7 +876,7 @@ article.active {
 /* contact bar */
 .sidebar {
     /* margin-bottom: 15px; */
-    max-height: 90vh;
+    max-height: 84vh;
     overflow: hidden;
     transition: var(--transition-2);
 }
@@ -1014,7 +1016,7 @@ article.active {
 
 .Contact1 {
     position: fixed;
-    top: 16vh;
+    top: 14vh;
     left: -17vw;
     transform: translateX(100%);
     opacity: 1;
@@ -1034,9 +1036,9 @@ article.active {
  */
 
 .resume{
-    position: absolute;
+    position: fixed;
     left: 30vw;
-    top: 16vh;
+    top: 11vh;
     box-sizing: border-box;
     background: var(--eerie-black-2);
     border: 1px solid var(--jet);
@@ -1044,7 +1046,31 @@ article.active {
     padding: 15px;
     box-shadow: var(--shadow-1);
     width: 62vw;
+    height: 88vh;
+    /* overflow: auto; */
+    overflow-y: scroll;
 }
+
+.resume::-webkit-scrollbar {
+    width: 20px;
+}
+
+.resume::-webkit-scrollbar-thumb {
+    border: 5px solid var(--smoky-black);
+    background: hsla(0, 0%, 100%, 0.1);
+    border-radius: 20px;
+    box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
+        inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
+}
+
+.resume::-webkit-scrollbar-thumb:hover {
+    background: hsla(0, 0%, 100%, 0.15);
+}
+
+.resume::-webkit-scrollbar-button {
+    height: 60px;
+}
+
 
 .timeline {
     margin-bottom: 30px;
