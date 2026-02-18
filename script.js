@@ -125,4 +125,111 @@
   // Footer year
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // ——— SARCATIC MODE (visibility toggle: no innerHTML for big sections) ———
+  var sarcasticBtn = document.getElementById('sarcastic-btn');
+  var sarcasticBtnText = document.getElementById('sarcastic-btn-text');
+  var sarcasticOn = false;
+  var originals = {};
+
+  var sarcastic = {
+    'hero-badge': 'Professional Number Wizard 🔮',
+    'hero-title-line': "Hey, it's",
+    'hero-title-name': 'Kartik Valecha',
+    'hero-tagline': 'Data Scientist @ PlaySimple Games · I predict money so others don\'t have to. MMM, GenAI & telling people what their data is actually saying. You\'re welcome. 😏',
+    'about-label': 'The legend begins 📜',
+    'about-title': 'Making spreadsheets look smart',
+    'about-para-1': "Hi, I'm Kartik Valecha — Data Scientist with <strong>2+ years</strong> of turning messy business problems into numbers that make sense. I do financial forecasting (company and product level), build ML pipelines from ingestion to deployment (because apparently one person can do it all 🙃), and ship solutions for LTV, churn, marketing optimization, and personalization. Pikachu, I choose you … and then we hit measurable gains in retention and ROI. At least revenue went up — can't say that for everyone. 📈",
+    'about-para-2': "<strong>B.Tech (CSE)</strong> from JIIT, Noida · <strong>BSc Data Science & Applications</strong> from IIT Madras · and currently collecting another degree at <strong>BITS Pilani</strong> (M.Tech AI & ML). Yes, I like school. 🎓",
+    'about-card-2': '<p>A few things about me:</p><p>I read (sometimes). I like numbers (obviously). I game—blame the job. I learn stuff: <strong>Deep Learning</strong>, <strong>AI</strong>, <strong>Web Dev</strong>, random universe facts. The usual. 🤷</p><code class="about-code">I AM LEARNING ALWAYS. (The models keep changing.)</code>',
+    'exp-label': "Where I've been paid to think 💭",
+    'exp-title': 'PlaySimple Games, Bengaluru (yes, we make games) 🎮',
+    'edu-label': 'Piece of paper collection 📜',
+    'edu-title': 'Institutions that had me 🏛️',
+    'skills-label': 'Things I can put on LinkedIn',
+    'skills-title': 'My digital weaponry ⚔️',
+    'projects-label': 'Side quests 🎯',
+    'projects-title': 'Things that actually shipped 🚀',
+    'contact-label': 'Slide into my DMs 👀',
+    'contact-title': "Or don't. I'll be here. ☕",
+    'contact-location': '<i class="fas fa-map-marker-alt"></i> Delhi, India (chai & chaos) 🇮🇳',
+    'footer-text': null
+  };
+
+  var swapIds = ['hero-badge', 'hero-title-line', 'hero-title-name', 'hero-tagline', 'about-label', 'about-title', 'about-para-1', 'about-para-2', 'about-card-2', 'exp-label', 'exp-title', 'edu-label', 'edu-title', 'skills-label', 'skills-title', 'projects-label', 'projects-title', 'contact-label', 'contact-title', 'contact-location', 'footer-text'];
+
+  function saveOriginals() {
+    swapIds.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el && !originals[id]) originals[id] = el.innerHTML;
+    });
+  }
+  function applySarcastic() {
+    document.body.classList.add('sarcastic-mode');
+    saveOriginals();
+    swapIds.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (id === 'footer-text') {
+        el.innerHTML = '© ' + new Date().getFullYear() + ' Kartik Valecha. Built with caffeine and sarcasm. 😌';
+      } else if (sarcastic[id]) {
+        el.innerHTML = sarcastic[id];
+      }
+    });
+    if (sarcasticBtn) {
+      sarcasticBtn.classList.add('active');
+      sarcasticBtn.setAttribute('aria-pressed', 'true');
+    }
+    if (sarcasticBtnText) sarcasticBtnText.textContent = 'SARCATIC MODE OFF';
+    if (document.getElementById('year')) document.getElementById('year').textContent = new Date().getFullYear();
+    var dot = document.getElementById('cursor-dot');
+    var spot = document.getElementById('cursor-spotlight');
+    if (dot) dot.classList.add('glitch');
+    if (spot) spot.classList.add('glitch');
+    document.querySelectorAll('.cv-download-btn').forEach(function (btn) {
+      btn.classList.remove('cv-hidden', 'cv-blown');
+    });
+  }
+  function restoreOriginal() {
+    document.body.classList.remove('sarcastic-mode');
+    swapIds.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el && originals[id]) el.innerHTML = originals[id];
+    });
+    if (sarcasticBtn) {
+      sarcasticBtn.classList.remove('active');
+      sarcasticBtn.setAttribute('aria-pressed', 'false');
+    }
+    if (sarcasticBtnText) sarcasticBtnText.textContent = 'SARCATIC MODE ON';
+    yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    var dot = document.getElementById('cursor-dot');
+    var spot = document.getElementById('cursor-spotlight');
+    if (dot) dot.classList.remove('glitch');
+    if (spot) spot.classList.remove('glitch');
+    document.querySelectorAll('.cv-download-btn').forEach(function (btn) {
+      btn.classList.remove('cv-hidden', 'cv-blown');
+    });
+  }
+  function toggleSarcastic() {
+    sarcasticOn = !sarcasticOn;
+    if (sarcasticOn) applySarcastic();
+    else restoreOriginal();
+  }
+  if (sarcasticBtn) sarcasticBtn.addEventListener('click', toggleSarcastic);
+  document.querySelectorAll('.cv-download-btn').forEach(function (btn) {
+    btn.addEventListener('mouseenter', function () {
+      if (!document.body.classList.contains('sarcastic-mode')) return;
+      var all = document.querySelectorAll('.cv-download-btn');
+      var alreadyBlown = Array.prototype.every.call(all, function (b) { return b.classList.contains('cv-blown'); });
+      if (alreadyBlown) return;
+      var self = this;
+      self.classList.add('cv-blown');
+      all.forEach(function (b) {
+        if (b !== self) {
+          setTimeout(function () { b.classList.add('cv-blown'); }, 340);
+        }
+      });
+    });
+  });
 })();

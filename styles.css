@@ -115,6 +115,62 @@ img { max-width: 100%; height: auto; display: block; }
 .cursor-dot.active {
   opacity: 1;
 }
+
+/* Glitched cursor in sarcastic mode */
+.cursor-dot.glitch {
+  animation: cursorGlitch 0.12s steps(2, end) infinite;
+  box-shadow: 0 0 20px 4px rgba(59, 130, 246, 0.5);
+}
+.cursor-dot.glitch::before,
+.cursor-dot.glitch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--cursor-light);
+  pointer-events: none;
+}
+.cursor-dot.glitch::before {
+  left: -2px;
+  opacity: 0.6;
+  box-shadow: 2px 0 0 rgba(255, 60, 60, 0.4);
+}
+.cursor-dot.glitch::after {
+  left: 2px;
+  opacity: 0.6;
+  box-shadow: -2px 0 0 rgba(60, 255, 255, 0.4);
+}
+@keyframes cursorGlitch {
+  0%, 100% { transform: translate(0, 0); filter: none; }
+  25% { transform: translate(2px, -1px); filter: hue-rotate(90deg); }
+  50% { transform: translate(-2px, 1px); filter: hue-rotate(-90deg); }
+  75% { transform: translate(1px, 2px); filter: hue-rotate(180deg); }
+}
+.cursor-spotlight.glitch {
+  animation: spotlightGlitch 0.2s steps(2, end) infinite;
+  opacity: 1;
+}
+@keyframes spotlightGlitch {
+  0%, 100% { transform: translate(0, 0); filter: blur(0); }
+  33% { transform: translate(3px, -2px); filter: blur(1px); }
+  66% { transform: translate(-2px, 3px); filter: blur(0); }
+}
+
+/* CV buttons: wind-blown disappear on hover in sarcastic mode (one by one, medium pace) */
+.cv-download-btn.cv-blown {
+  pointer-events: none;
+  transform: translateX(120%);
+  opacity: 0;
+  filter: blur(8px);
+  transition: transform 0.66s ease-out, opacity 0.66s ease-out, filter 0.6s ease-out;
+}
+/* Legacy: keep cv-hidden for any other use */
+.cv-download-btn.cv-hidden {
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
 .noise {
   position: fixed;
   inset: 0;
@@ -207,6 +263,32 @@ main { position: relative; z-index: 1; }
 .nav-cta:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 24px var(--accent-glow);
+}
+.nav-sarcastic {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-family: var(--font);
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.nav-sarcastic:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.nav-sarcastic.active {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: var(--accent);
+  color: var(--text);
 }
 .nav-toggle {
   display: none;
@@ -385,6 +467,26 @@ main { position: relative; z-index: 1; }
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Sarcastic mode: toggle content-normal vs content-sarcastic */
+.content-sarcastic {
+  display: none;
+}
+body.sarcastic-mode .content-normal {
+  display: none !important;
+}
+body.sarcastic-mode .content-sarcastic.timeline {
+  display: block !important;
+}
+body.sarcastic-mode .content-sarcastic.education-grid {
+  display: grid !important;
+}
+body.sarcastic-mode .content-sarcastic.skills-grid {
+  display: grid !important;
+}
+body.sarcastic-mode .content-sarcastic.projects-grid {
+  display: grid !important;
 }
 
 /* ===== About ===== */
