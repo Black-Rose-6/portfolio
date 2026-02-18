@@ -1,6 +1,10 @@
-# portfolio
-WILL BE UPDATED SOON 
+# Kartik Valecha — Portfolio
 
-UNDER PROGRESS
+A modern, animated single-page portfolio
 
-https://black-rose-6.github.io/portfolio/
+## Contents
+
+- **index.html** — Single-page layout (Hero, About, Experience, Education, Skills, Projects, Contact)
+- **styles.css** — Dark theme, amber accent, scroll reveals, hover effects
+- **script.js** — Header scroll, mobile menu, Intersection Observer reveals, smooth scroll
+- **Kartik_Valecha_resume.pdf** — Resume (download link in nav and hero)
